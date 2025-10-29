@@ -17,7 +17,7 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v5
+      uses: actions/checkout@v4
       with:
         path: kdu
     
@@ -29,11 +29,11 @@ jobs:
       working-directory: ${{ github.workspace }}
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v4
       with:
         name: kdu-release-x64
         path: |
-          kdu/**/bin/x64/Release/**/*.exe
-          kdu/**/bin/x64/Release/**/*.dll
-          kdu/**/bin/x64/Release/**/*.pdb
+          kdu/**/output/x64/Release/*.exe
+          kdu/**/output/x64/Release/*.dll
+          kdu/**/output/x64/Release/*.pdb
         if-no-files-found: warn
